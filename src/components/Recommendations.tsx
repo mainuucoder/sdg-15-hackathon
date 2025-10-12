@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Sprout, TestTube, Droplet, CompressIcon, Check } from "lucide-react";
+import { Sprout, TestTube, Droplet, Layers, Check } from "lucide-react";
 
 interface Recommendation {
   icon: React.ReactNode;
@@ -50,7 +50,7 @@ const Recommendations = () => {
       improvement: "Expected improvement: 160 kg/ha in 2 months",
     },
     {
-      icon: <CompressIcon className="w-6 h-6" />,
+      icon: <Layers className="w-6 h-6" />,
       title: "Soil Structure",
       priority: "medium",
       description: "Improve soil structure and reduce compaction",
