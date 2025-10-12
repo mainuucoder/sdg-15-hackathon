@@ -11,6 +11,7 @@ interface Recommendation {
   improvement: string;
 }
 
+
 const Recommendations = () => {
   const recommendations: Recommendation[] = [
     {

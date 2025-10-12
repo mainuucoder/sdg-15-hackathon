@@ -16,6 +16,7 @@ const Footer = () => {
     ],
   };
 
+  
   return (
     <footer className="bg-gradient-to-br from-primary to-secondary text-primary-foreground py-12">
       <div className="container px-4">

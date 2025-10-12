@@ -24,6 +24,7 @@ const Dashboard = () => {
         setSession(session);
         setUser(session?.user ?? null);
         
+        
         if (!session) {
           navigate("/auth");
         }

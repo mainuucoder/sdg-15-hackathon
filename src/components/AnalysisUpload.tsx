@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { CloudUpload, Radar, MapPin, Play } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+
 const AnalysisUpload = () => {
   const [file, setFile] = useState<File | null>(null);
   const [region, setRegion] = useState("laikipia");

@@ -11,6 +11,7 @@ const CarbonCredits = () => {
       unit: "tons CO₂/ha",
       gradient: "from-success to-success/80",
     },
+  
     {
       icon: <TrendingUp className="w-8 h-8" />,
       title: "Annual Sequestration",

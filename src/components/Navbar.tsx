@@ -10,6 +10,7 @@ const Navbar = () => {
   const [user, setUser] = useState<User | null>(null);
   const navigate = useNavigate();
 
+  
   useEffect(() => {
     // Check current auth state
     supabase.auth.getSession().then(({ data: { session } }) => {

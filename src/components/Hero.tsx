@@ -7,6 +7,7 @@ const Hero = () => {
     document.getElementById('analyze')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
