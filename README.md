@@ -10,7 +10,7 @@ Welcome to your modern web application project!
 This repository contains everything you need to **develop, test, and deploy** a responsive, fast, and scalable web app using today’s best frontend technologies.
 
 ---
-## 🧭 Project link:(https://sdg-15-hackathon.vercel.app/)
+🧭 Project link:(https://sdg-15-hackathon.vercel.app/)
 ---
 
 ## 🧭 Project Info
