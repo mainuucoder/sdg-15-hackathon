@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Sprout, TestTube, Droplet, Layers, Check } from "lucide-react";
+import { Check, Droplet, Layers, Sprout, TestTube } from "lucide-react";
 
 interface Recommendation {
   icon: React.ReactNode;
