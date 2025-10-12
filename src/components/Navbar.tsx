@@ -1,9 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Microscope, Menu, X } from "lucide-react";
+import { Microscope, Menu, X, LogIn, UserPlus } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { useNavigate } from "react-router-dom";
+import { User } from "@supabase/supabase-js";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check current auth state
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+    });
+
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        setUser(session?.user ?? null);
+      }
+    );
+
+    return () => subscription.unsubscribe();
+  }, []);
 
   const navItems = [
     { label: "Home", href: "#home" },
@@ -40,6 +61,36 @@ const Navbar = () => {
                 {item.label}
               </button>
             ))}
+            {user ? (
+              <Button
+                onClick={() => navigate("/dashboard")}
+                variant="secondary"
+                size="sm"
+                className="ml-2"
+              >
+                Dashboard
+              </Button>
+            ) : (
+              <div className="flex items-center gap-2 ml-2">
+                <Button
+                  onClick={() => navigate("/auth")}
+                  variant="ghost"
+                  size="sm"
+                  className="text-primary-foreground hover:bg-white/10"
+                >
+                  <LogIn className="w-4 h-4 mr-2" />
+                  Sign In
+                </Button>
+                <Button
+                  onClick={() => navigate("/auth")}
+                  variant="secondary"
+                  size="sm"
+                >
+                  <UserPlus className="w-4 h-4 mr-2" />
+                  Sign Up
+                </Button>
+              </div>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -65,6 +116,43 @@ const Navbar = () => {
                 {item.label}
               </button>
             ))}
+            {user ? (
+              <Button
+                onClick={() => {
+                  navigate("/dashboard");
+                  setIsOpen(false);
+                }}
+                variant="secondary"
+                className="w-full mx-4"
+              >
+                Dashboard
+              </Button>
+            ) : (
+              <div className="px-4 pt-2 space-y-2">
+                <Button
+                  onClick={() => {
+                    navigate("/auth");
+                    setIsOpen(false);
+                  }}
+                  variant="ghost"
+                  className="w-full text-primary-foreground hover:bg-white/10"
+                >
+                  <LogIn className="w-4 h-4 mr-2" />
+                  Sign In
+                </Button>
+                <Button
+                  onClick={() => {
+                    navigate("/auth");
+                    setIsOpen(false);
+                  }}
+                  variant="secondary"
+                  className="w-full"
+                >
+                  <UserPlus className="w-4 h-4 mr-2" />
+                  Sign Up
+                </Button>
+              </div>
+            )}
           </div>
         )}
       </div>
