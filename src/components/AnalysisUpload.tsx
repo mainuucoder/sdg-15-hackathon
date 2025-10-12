@@ -79,7 +79,7 @@ const AnalysisUpload = () => {
                   </div>
                   <Input
                     type="file"
-                    accept=".tif,.tiff,.geojson,.json"
+                    accept="image/*,.tif,.tiff,.geojson,.json"
                     onChange={handleFileChange}
                     className="cursor-pointer"
                   />
